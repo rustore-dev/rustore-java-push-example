@@ -24,6 +24,8 @@ public class App extends Application {
     /*
         Инициализируем SDK и создаем канал для отображения пуш-уведомлений средствами SDK.
         Параметр projectId замените на свой
+        Инструкция получения projectID
+        https://help.rustore.ru/rustore/for_developers/developer-documentation/sdk_push-notifications/RuStore-SDK-push-notifications/general_SDK-push-notifications#:~:text=%D0%98%D0%BD%D0%B8%D1%86%D0%B8%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F,%D0%B2%D1%8B%D0%B2%D0%BE%D0%B4%20%D0%B2%20logcat.
      */
 
     private void initPushes() {
