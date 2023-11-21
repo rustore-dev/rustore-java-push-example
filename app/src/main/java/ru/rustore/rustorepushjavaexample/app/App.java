@@ -32,7 +32,7 @@ public class App extends Application {
         createNotificationPushChannel();
         RuStorePushClient.INSTANCE.init(
                 this,
-                "111111",
+                "your_push_project_id",
                 new PushLogger("PushExampleLogger")
         );
         RuStorePushClient.INSTANCE.getToken().addOnCompleteListener(new OnCompleteListener<String>() {
