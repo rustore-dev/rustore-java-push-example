@@ -3,14 +3,10 @@ package ru.rustore.rustorepushjavaexample.app;
 import android.app.Application;
 import android.util.Log;
 
-import androidx.annotation.NonNull;
-
 import ru.rustore.rustorepushjavaexample.R;
 import ru.rustore.rustorepushjavaexample.notifications.PushLogger;
 import ru.rustore.rustorepushjavaexample.notifications.wrapper.NotificationManagerWrapper;
-import ru.rustore.sdk.core.tasks.OnCompleteListener;
 import ru.rustore.sdk.pushclient.RuStorePushClient;
-import ru.rustore.sdk.pushclient.common.logger.Logger;
 
 public class App extends Application {
     public static final String LOG_TAG = "App";
@@ -35,16 +31,14 @@ public class App extends Application {
                 "your_push_project_id",
                 new PushLogger("PushExampleLogger")
         );
-        RuStorePushClient.INSTANCE.getToken().addOnCompleteListener(new OnCompleteListener<String>() {
-            @Override
-            public void onSuccess(String result){
-                Log.e(LOG_TAG, "getToken onSuccess = " + result);
-            }
-            @Override
-            public void onFailure(@NonNull Throwable throwable){
+
+        RuStorePushClient.INSTANCE.getToken()
+            .addOnSuccessListener(result -> {
+                Log.w(LOG_TAG, "getToken onSuccess = " + result);
+            })
+            .addOnFailureListener(throwable -> {
                 Log.e(LOG_TAG, "getToken onFailure", throwable);
-            }
-        });
+            });
     }
 
     /*
