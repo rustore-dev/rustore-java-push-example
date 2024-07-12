@@ -25,6 +25,11 @@ public class PushListenerService extends RuStoreMessagingService {
     }
 
     @Override
+    public void onDeletedMessages() {
+        Log.d(LOG_TAG, "onDeletedMessages");
+    }
+
+    @Override
     public void onMessageReceived(@NonNull RemoteMessage message) {
         super.onMessageReceived(message);
 
@@ -41,6 +46,7 @@ public class PushListenerService extends RuStoreMessagingService {
                 )
         );
     }
+
 
     @Override
     public void onError(@NonNull List<? extends RuStorePushClientException> errors) {
